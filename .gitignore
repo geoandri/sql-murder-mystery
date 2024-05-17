@@ -1,0 +1,59 @@
+### OSX ###
+.DS_Store
+
+### Server ###
+server/HELP.md
+server/.gradle
+server/build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/server/src/main/**/build/
+!**/server/src/test/**/build/
+
+### STS ###
+server/.apt_generated
+server/.classpath
+server/.factorypath
+server/.project
+server/.settings
+server/.springBeans
+server/.sts4-cache
+server/bin/
+!**/server/src/main/**/bin/
+!**/server/src/test/**/bin/
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+out/
+!**/server/src/main/**/out/
+!**/server/src/test/**/out/
+
+
+### Develpment files ###
+db-data/
+pgadmin/
+
+### K8s ###
+k8s/*.d.ts
+k8s/*.js
+!k8s/jest.config.js
+k8s/node_modules
+k8s/dist/
+k8s/imports
+k8s/k8s-deployment
+k8s/__snapshots__
+
+### connectors
+**/node_modules
+
+# build
+.gradle/
+build/
+
+### local files ###
+**/application-local.yaml
+**/application-local.yml
+**/bom.json
+**/bom.xml

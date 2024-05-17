@@ -1,0 +1,30 @@
+services:
+  database:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: sql-mystery-db
+    restart: on-failure
+    healthcheck:
+      test: "pg_isready --username=postgres -d sql-mystery-db -q"
+      timeout: 10s
+      retries: 20
+    volumes:
+      - ./db-data/data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: 'sql-mystery-db'
+      POSTGRES_USER: 'postgres'
+      POSTGRES_PASSWORD: 'postgres'
+    ports:
+      - '5432:5432'
+
+  pgadmin:
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: root
+    ports:
+      - "5050:80"
+    volumes:
+      - ./pgadmin:/var/lib/pgadmin
